@@ -19,4 +19,11 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::middleware(['auth', 'web'])->group(function () {
+    Route::get('dashboard', [\App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
+    Route::prefix('user-management')->as('user-management.')->group(function () {
+        Route::get('users', function(){ return view('user-management.users');})->name('users');
+        Route::get('permissions', function(){ return view('user-management.permissions');})->name('permissions');
+        /*Route::resource('roles', \App\Http\Controllers\UserManagement\RolesController::class);*/
+    });
+});

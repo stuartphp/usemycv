@@ -3,10 +3,13 @@
 return [
     'fields' => [
         'email'     =>'Email',
-        'password'  =>'password',
+        'password'  =>'Password',
         'remember'  =>'Remember Me',
         'login'     =>'Login',
-        'forgot_password'   =>'Forgot Your Password?'
+        'register'  =>'Register',
+        'forgot_password'   =>'Forgot Your Password?',
+        'reset_password'    =>'Reset Password',
+        'send_password_request'=>'Send Password Reset Link'
     ],
     'failed' => 'These credentials do not match our records.',
     'password' => 'The provided password is incorrect.',
